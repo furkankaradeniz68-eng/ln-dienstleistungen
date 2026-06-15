@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Referenzen &amp; Projekte | L&amp;N Dienstleistungen Neustadt</title>
+  <meta name="description" content="Bildergalerie abgeschlossener Projekte von L&amp;N Dienstleistungen in Neustadt: Gartenpflege, Gebäudereinigung, Hausmeisterservice, Entrümpelung &amp; Winterdienst. Überzeugen Sie sich selbst!" />
+  <meta name="keywords" content="Referenzen Hausmeister Neustadt, Gartenpflege Bilder, Entrümpelung Neustadt, Gebäudereinigung Referenzen, L&N Dienstleistungen Projekte" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.ln-dienstleistungen.de/referenzen.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Referenzen – L&amp;N Dienstleistungen Neustadt" />
+  <meta property="og:description" content="Unsere abgeschlossenen Projekte in der Bildergalerie: Gartenpflege, Reinigung, Hausmeister &amp; mehr." />
+  <meta property="og:url" content="https://www.ln-dienstleistungen.de/referenzen.html" />
+  <meta property="og:image" content="https://www.ln-dienstleistungen.de/images/Bildergalerie/garten-landschaftspflege.jpg" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="L&amp;N Dienstleistungen" />
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://www.ln-dienstleistungen.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Referenzen", "item": "https://www.ln-dienstleistungen.de/referenzen.html" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: ImageGallery -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Referenzen L&N Dienstleistungen",
+    "description": "Abgeschlossene Projekte von L&N Dienstleistungen in Neustadt an der Weinstraße",
+    "url": "https://www.ln-dienstleistungen.de/referenzen.html"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #8DC63F;
+      --green-dark:  #2D5A1B;
+      --green-light: #f0f9e4;
+      --white:       #ffffff;
+      --gray-50:     #f8faf5;
+      --text:        #1a2614;
+      --text-light:  #4a5e3a;
+      --gray-400:    #9aaa8e;
+      --radius:      16px;
+      --shadow:      0 4px 24px rgba(45,90,27,0.10);
+      --shadow-lg:   0 8px 48px rgba(45,90,27,0.18);
+      --transition:  all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ═══ NAVBAR (identisch zur index.html) ═══ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(141,198,63,0.12);
+      box-shadow: 0 2px 20px rgba(45,90,27,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    
+
+    .nav-logo-text {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-light);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--green-dark); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--green-dark); font-weight: 600; }
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--green) !important;
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      font-size: 0.875rem !important;
+      box-shadow: 0 4px 16px rgba(141,198,63,0.35);
+    }
+
+    .nav-cta:hover { background: var(--green-dark) !important; }
+    .nav-cta::after { display: none !important; }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+    }
+
+    /* ═══ PAGE HEADER ═══ */
+    .page-header {
+      padding: 140px 32px 72px;
+      background: linear-gradient(135deg, #ffffff 0%, #f4fae8 60%, #e8f5d0 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(141,198,63,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .page-header .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .page-header h1 span { color: var(--green); }
+
+    .page-header p {
+      font-size: 1rem;
+      color: var(--text-light);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ═══ FILTER TABS ═══ */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 40px 32px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .filter-btn {
+      padding: 9px 20px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(45,90,27,0.15);
+      background: transparent;
+      color: var(--text-light);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--green);
+      color: var(--green-dark);
+      background: var(--green-light);
+    }
+
+    .filter-btn.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(141,198,63,0.35);
+    }
+
+    /* ═══ GALLERY GRID ═══ */
+    .gallery-section {
+      padding: 48px 32px 96px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid {
+      columns: 3;
+      column-gap: 20px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 20px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      background: var(--gray-50);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    /* Hover Overlay */
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(18, 38, 10, 0.92) 0%,
+        rgba(18, 38, 10, 0.5) 45%,
+        rgba(18, 38, 10, 0) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px 20px;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .overlay-category {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 5px;
+      transform: translateY(8px);
+      transition: transform 0.35s ease 0.05s;
+    }
+
+    .gallery-item:hover .overlay-category {
+      transform: translateY(0);
+    }
+
+    .overlay-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 6px;
+      transform: translateY(8px);
+      transition: transform 0.35s ease 0.08s;
+    }
+
+    .gallery-item:hover .overlay-title {
+      transform: translateY(0);
+    }
+
+    .overlay-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.5;
+      transform: translateY(8px);
+      transition: transform 0.35s ease 0.11s;
+    }
+
+    .gallery-item:hover .overlay-desc {
+      transform: translateY(0);
+    }
+
+    /* Category badge (always visible, top-left) */
+    .gallery-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(6px);
+      border-radius: 50px;
+      padding: 4px 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      border: 1px solid rgba(141,198,63,0.25);
+    }
+
+    /* Placeholder (wenn noch kein Bild) */
+    .img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #e8f5d0, #c8e89a);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--green-dark);
+    }
+
+    .img-placeholder .ph-icon { font-size: 2.5rem; }
+
+    .img-placeholder .ph-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      opacity: 0.7;
+    }
+
+    /* Hidden items (filter) */
+    .gallery-item.hidden {
+      display: none;
+    }
+
+    /* ═══ LIGHTBOX ═══ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 20, 8, 0.94);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-inner {
+      max-width: 900px;
+      width: 100%;
+      position: relative;
+    }
+
+    .lightbox-img {
+      width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      border-radius: var(--radius);
+      display: block;
+    }
+
+    .lightbox-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      max-height: 75vh;
+      background: linear-gradient(135deg, #2d5a1b, #8dc63f);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .lightbox-caption {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .lightbox-caption h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .lightbox-caption p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 40px;
+      height: 40px;
+      background: var(--white);
+      border: none;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .lightbox-close:hover {
+      background: var(--green);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      backdrop-filter: blur(6px);
+    }
+
+    .lightbox-nav:hover { background: var(--green); border-color: var(--green); }
+    .lightbox-prev { left: -60px; }
+    .lightbox-next { right: -60px; }
+
+    /* ═══ CTA BOTTOM ═══ */
+    .gallery-cta {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1a3a10 100%);
+      border-radius: 28px;
+      padding: 56px 48px;
+      text-align: center;
+      margin: 0 32px 96px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .gallery-cta h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .gallery-cta h2 span { color: var(--green); }
+
+    .gallery-cta p {
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 28px;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+      padding: 15px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(141,198,63,0.4);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: #a3d455;
+      transform: translateY(-2px);
+    }
+
+    /* ═══ FOOTER ═══ */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.7);
+      padding: 40px 32px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      margin: 0 10px;
+      transition: var(--transition);
+    }
+
+    footer a:hover { color: var(--green); }
+
+    .footer-logo-text {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .footer-logo-text span { color: var(--green); }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 900px) {
+      .gallery-grid { columns: 2; }
+      .lightbox-prev { left: -16px; }
+      .lightbox-next { right: -16px; }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid { columns: 1; }
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .gallery-cta { padding: 36px 24px; margin: 0 20px 64px; }
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="L&N Dienstleistungen Logo" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#leistungen">Leistungen</a></li>
+        <li><a href="index.html#ueber-uns">Über uns</a></li>
+        <li><a href="referenzen.html" class="active">Referenzen</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><a href="tel:+491726432021" class="nav-cta">📞 Jetzt anrufen</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ PAGE HEADER ═══ -->
+  <div class="page-header">
+    <span class="section-tag">Unsere Arbeiten</span>
+    <h1>Referenzen &amp; abgeschlossene<br /><span>Projekte in Neustadt</span></h1>
+    <p>Ein Blick auf das, was wir leisten — für Privat- und Gewerbekunden in Neustadt an der Weinstraße und Umgebung.</p>
+  </div>
+
+  <!-- ═══ FILTER TABS ═══ -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">Alle</button>
+    <button class="filter-btn" data-filter="garten">🌿 Gartenpflege</button>
+    <button class="filter-btn" data-filter="reinigung">🏢 Reinigung</button>
+    <button class="filter-btn" data-filter="hausmeister">🔧 Hausmeister</button>
+    <button class="filter-btn" data-filter="entrumpelung">📦 Entrümpelung</button>
+    <button class="filter-btn" data-filter="winterdienst">❄️ Winterdienst</button>
+  </div>
+
+  <!-- ═══ GALLERY ═══ -->
+  <div class="gallery-section">
+    <div class="gallery-grid" id="galleryGrid">
+
+      <!-- ─── Arbeit 1 ─── -->
+      <div class="gallery-item reveal" data-category="garten" data-index="0">
+        <img src="images/Bildergalerie/garten-landschaftspflege.jpg" alt="Garten- und Landschaftspflege Neustadt – L&N Dienstleistungen" />
+        <div class="gallery-badge">Gartenpflege</div>
+        <div class="gallery-overlay">
+          <span class="overlay-category">Garten- &amp; Landschaftspflege</span>
+          <div class="overlay-title">Gartengestaltung &amp; Pflege</div>
+          <div class="overlay-desc">Vollständige Neugestaltung eines Privatgartens inkl. Rasenmähen, Hecken schneiden und Bepflanzung.</div>
+        </div>
+      </div>
+
+      <!-- ─── Arbeit 2 ─── -->
+      <div class="gallery-item reveal" data-category="reinigung" data-index="1">
+        <img src="images/Bildergalerie/gebäudereinigung.jpg" alt="Gebäudereinigung Neustadt – professionelle Reinigung L&N" />
+        <div class="gallery-badge">Reinigung</div>
+        <div class="gallery-overlay">
+          <span class="overlay-category">Gebäudereinigung</span>
+          <div class="overlay-title">Professionelle Gebäudereinigung</div>
+          <div class="overlay-desc">Gründliche Unterhaltsreinigung eines Mehrfamilienhauses — Treppenhaus, Eingang und Gemeinschaftsbereiche.</div>
+        </div>
+      </div>
+
+      <!-- ─── Arbeit 3 ─── -->
+      <div class="gallery-item reveal" data-category="entrumpelung" data-index="2">
+        <img src="images/Bildergalerie/entrümpelung.jpg" alt="Entrümpelung Neustadt – Kellerräumung L&N Dienstleistungen" />
+        <div class="gallery-badge">Entrümpelung</div>
+        <div class="gallery-overlay">
+          <span class="overlay-category">Entrümpelung</span>
+          <div class="overlay-title">Kellerentrümpelung</div>
+          <div class="overlay-desc">Komplette Räumung und fachgerechte Entsorgung eines vollgestellten Kellers — in einem Tag erledigt.</div>
+        </div>
+      </div>
+
+      <!-- ─── Arbeit 4 ─── -->
+      <div class="gallery-item reveal" data-category="garten" data-index="3">
+        <img src="images/Bildergalerie/hausmeisterservice.jpg" alt="Hausmeisterservice Neustadt – Gebäudebetreuung L&N" />
+        <div class="gallery-badge">Gartenpflege</div>
+        <div class="gallery-overlay">
+          <span class="overlay-category">Garten- &amp; Landschaftspflege</span>
+          <div class="overlay-title">Herbst- &amp; Saisonpflege</div>
+          <div class="overlay-desc">Saisonale Laubreinigung von Garten, Einfahrt und Gehweg für ein gepflegtes Erscheinungsbild das ganze Jahr.</div>
+        </div>
+      </div>
+
+      <!-- ─── Arbeit 5 ─── -->
+      <div class="gallery-item reveal" data-category="hausmeister" data-index="4">
+        <img src="images/Bildergalerie/winterdienst.jpg" alt="Winterdienst Neustadt – Schneeräumung Streudienst L&N" />
+        <div class="gallery-badge">Hausmeister</div>
+        <div class="gallery-overlay">
+          <span class="overlay-category">Hausmeisterservice</span>
+          <div class="overlay-title">Außenanlage &amp; Wartung</div>
+          <div class="overlay-desc">Laufende Betreuung einer Gewerbeimmobilie — Außenanlagen, Beleuchtung und kleine Reparaturen inklusive.</div>
+        </div>
+      </div>
+
+    </div><!-- /gallery-grid -->
+  </div>
+
+  <!-- ═══ CTA BOTTOM ═══ -->
+  <div class="gallery-cta reveal">
+    <h2>Ihr Projekt als nächstes <span>Referenz</span>?</h2>
+    <p>Kontaktieren Sie uns unverbindlich — wir erstellen Ihnen ein kostenloses Angebot.</p>
+    <a href="index.html#kontakt" class="btn-primary">Jetzt Angebot anfordern →</a>
+  </div>
+
+  <!-- ═══ LIGHTBOX ═══ -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lbClose">✕</button>
+      <button class="lightbox-nav lightbox-prev" id="lbPrev">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lbNext">›</button>
+      <img class="lightbox-img" id="lbImg" src="" alt="" />
+      <div class="lightbox-caption">
+        <h3 id="lbTitle"></h3>
+        <p id="lbDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <img src="images/logo.png" alt="L&N Dienstleistungen Logo" class="footer-logo-img" />
+    <p style="margin: 6px 0 12px; font-size:0.82rem;">Sauterstraße 200, 67433 Neustadt &nbsp;|&nbsp; 0172 6432021</p>
+    <a href="index.html">Startseite</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <p style="margin-top:16px; font-size:0.75rem; opacity:0.4;">© 2025 L&amp;N Dienstleistungen. Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <script>
+    // ── Filter ──
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        items.forEach(item => {
+          const match = filter === 'all' || item.dataset.category === filter;
+          item.classList.toggle('hidden', !match);
+        });
+      });
+    });
+
+    // ── Lightbox ──
+    const lightbox = document.getElementById('lightbox');
+    const lbImg    = document.getElementById('lbImg');
+    const lbTitle  = document.getElementById('lbTitle');
+    const lbDesc   = document.getElementById('lbDesc');
+    let currentIndex = 0;
+
+    function getVisibleItems() {
+      return [...items].filter(i => !i.classList.contains('hidden'));
+    }
+
+    function openLightbox(item) {
+      const img = item.querySelector('img');
+      const title = item.querySelector('.overlay-title')?.textContent || '';
+      const desc  = item.querySelector('.overlay-desc')?.textContent  || '';
+      currentIndex = getVisibleItems().indexOf(item);
+
+      if (img && img.src && !img.style.display.includes('none')) {
+        lbImg.src = img.src;
+        lbImg.style.display = 'block';
+      } else {
+        lbImg.src = '';
+        lbImg.style.display = 'none';
+      }
+      lbTitle.textContent = title;
+      lbDesc.textContent  = desc;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function navigateLightbox(dir) {
+      const visible = getVisibleItems();
+      currentIndex = (currentIndex + dir + visible.length) % visible.length;
+      openLightbox(visible[currentIndex]);
+    }
+
+    items.forEach(item => item.addEventListener('click', () => openLightbox(item)));
+    document.getElementById('lbClose').addEventListener('click', closeLightbox);
+    document.getElementById('lbPrev').addEventListener('click', () => navigateLightbox(-1));
+    document.getElementById('lbNext').addEventListener('click', () => navigateLightbox(1));
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowLeft')  navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+
+    // ── Scroll reveal ──
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting)
+          setTimeout(() => entry.target.classList.add('visible'), i * 70);
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ── Navbar scrolled ──
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.boxShadow =
+        window.scrollY > 20 ? '0 2px 20px rgba(45,90,27,0.08)' : 'none';
+    });
+
+    // ── Mobile burger ──
+    document.getElementById('burger').addEventListener('click', () => {
+      const links = document.querySelector('.nav-links');
+      const isOpen = links.style.display === 'flex';
+      links.style.cssText = isOpen
+        ? ''
+        : 'display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:white;padding:20px 32px;gap:16px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border-bottom:1px solid #eee;';
+    });
+  </script>
+
+</body>
+</html>
