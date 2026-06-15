@@ -72,19 +72,92 @@
     footer a:hover { color: var(--green); }
     .footer-logo { font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
     .footer-logo span { color: var(--green); }
+  
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.7);
+      padding: 56px 32px 32px;
+    }
+
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      margin-top: 12px;
+      max-width: 280px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer-col h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul a {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-col ul a:hover { color: var(--green); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-bottom a:hover { color: var(--green); }
+
+    .footer-logo-img {
+      height: 56px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .footer-top { grid-template-columns: 1fr; } }
+
   </style>
 </head>
 <body>
 
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
+      <a href="/" class="nav-logo">
         <img src="images/logo.png" alt="L&N Dienstleistungen Logo" class="nav-logo-img" />
       </a>
       <ul class="nav-links">
         <li><a href="index.html#leistungen">Leistungen</a></li>
         <li><a href="index.html#ueber-uns">Über uns</a></li>
-        <li><a href="referenzen.html">Referenzen</a></li>
+        <li><a href="/referenzen">Referenzen</a></li>
         <li><a href="index.html#kontakt">Kontakt</a></li>
         <li><a href="tel:+491726432021" class="nav-cta">📞 Jetzt anrufen</a></li>
       </ul>
@@ -93,7 +166,7 @@
 
   <div class="page-wrap">
     <div class="breadcrumb">
-      <a href="index.html">Startseite</a> › Datenschutzerklärung
+      <a href="/">Startseite</a> › Datenschutzerklärung
     </div>
 
     <h1>Datenschutzerklärung</h1>
@@ -243,13 +316,42 @@
     </div>
   </div>
 
-  <footer>
-    <img src="images/logo.png" alt="L&N Dienstleistungen Logo" class="footer-logo-img" />
-    <p style="margin-bottom:12px;">Sauterstraße 200, 67433 Neustadt &nbsp;|&nbsp; 0172 6432021</p>
-    <a href="index.html">Startseite</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-    <p style="margin-top:14px; opacity:0.4; font-size:0.75rem;">© 2025 L&amp;N Dienstleistungen.</p>
+    <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="L&N Dienstleistungen Logo" class="footer-logo-img" />
+          <p>Ihr zuverlässiger Partner rund ums Haus &amp; Garten in Neustadt und Umgebung.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul>
+            <li><a href="index.html#leistungen">Gartenpflege</a></li>
+            <li><a href="index.html#leistungen">Gebäudereinigung</a></li>
+            <li><a href="index.html#leistungen">Hausmeisterservice</a></li>
+            <li><a href="index.html#leistungen">Haushaltsauflösung</a></li>
+            <li><a href="index.html#leistungen">Entrümpelungen</a></li>
+            <li><a href="index.html#leistungen">Winterdienst</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="tel:+491726432021">0172 6432021</a></li>
+            <li><a href="mailto:info@ln-dienstleistungen.de">info@ln-dienstleistungen.de</a></li>
+            <li><a href="index.html#kontakt">Sauterstraße 200</a></li>
+            <li><a href="index.html#kontakt">67433 Neustadt</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 L&amp;N Dienstleistungen. Alle Rechte vorbehalten.</span>
+        <div style="display:flex; gap:20px;">
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
 </body>
