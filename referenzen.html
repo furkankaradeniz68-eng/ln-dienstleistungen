@@ -816,15 +816,29 @@
         </div>
       </div>
 
-      <!-- ─── Garten Projekt 2 (nur Vorher) ─── -->
+      <!-- ─── Garten Projekt 2 (Vorher/Nachher Slide) ─── -->
       <div class="gallery-item reveal" data-category="garten" data-index="1">
-        <span class="slide-badge vorher" style="position:absolute;top:12px;right:12px;z-index:2;">Vorher</span>
-        <img src="images/Referenzen/Garten-2.jpg" alt="Gartenpflege Projekt 2 – Neustadt an der Weinstraße" loading="lazy" />
+        <div class="card-slides" data-current="0">
+          <div class="slide active">
+            <span class="slide-badge vorher">Vorher</span>
+            <img src="images/Referenzen/Garten-2.jpg" alt="Gartenpflege Projekt 2 – Vorher" loading="lazy" />
+          </div>
+          <div class="slide">
+            <span class="slide-badge nachher">Nachher</span>
+            <img src="images/Referenzen/Garten-2-1.jpg" alt="Gartenpflege Projekt 2 – Nachher" loading="lazy" />
+          </div>
+          <button class="slide-nav prev" onclick="slideCard(this,-1)">&#8249;</button>
+          <button class="slide-nav next" onclick="slideCard(this,1)">&#8250;</button>
+          <div class="slide-dots">
+            <span class="slide-dot active"></span>
+            <span class="slide-dot"></span>
+          </div>
+        </div>
         <div class="gallery-badge">Gartenpflege</div>
         <div class="gallery-overlay">
           <span class="overlay-category">🌿 Garten- &amp; Landschaftspflege</span>
-          <div class="overlay-title">Projekt 2</div>
-          <div class="overlay-desc">Professionelle Gartenpflege für Privatkunden in Neustadt an der Weinstraße.</div>
+          <div class="overlay-title">Projekt 2 — Vorher &amp; Nachher</div>
+          <div class="overlay-desc">Pfeile nutzen um Vorher/Nachher zu vergleichen.</div>
         </div>
       </div>
 
