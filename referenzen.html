@@ -273,6 +273,64 @@
       column-gap: 20px;
     }
 
+    /* Vorher/Nachher Badge */
+    .badge-vorher { background: rgba(200,50,50,0.85) !important; }
+    .badge-nachher { background: rgba(45,90,27,0.85) !important; }
+
+    /* Vorher-Nachher Paar Container */
+    .before-after-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px 64px;
+    }
+    .before-after-section h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 48px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--green-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .before-after-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .ba-item {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .ba-item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition);
+    }
+    .ba-item:hover img { transform: scale(1.04); }
+    .ba-label {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: rgba(45,90,27,0.85);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+    .ba-label.vorher { background: rgba(180,40,40,0.85); }
+    @media (max-width: 600px) {
+      .before-after-grid { grid-template-columns: 1fr; }
+      .before-after-section { padding: 0 20px 48px; }
+    }
+
     .gallery-item {
       break-inside: avoid;
       margin-bottom: 20px;
@@ -782,6 +840,57 @@
       </div>
 
     </div><!-- /gallery-grid -->
+  </div>
+
+  <!-- ══════════════ VORHER / NACHHER ══════════════ -->
+  <div class="before-after-section">
+
+    <h3>🌿 Gartenpflege — Vorher &amp; Nachher</h3>
+
+    <!-- Projekt 1 -->
+    <div class="before-after-grid reveal" style="margin-bottom:16px;">
+      <div class="ba-item">
+        <img src="images/Referenzen/Garten-1.jpg" alt="Gartenpflege Vorher – Projekt 1" loading="lazy" />
+        <span class="ba-label vorher">Vorher</span>
+      </div>
+      <div class="ba-item">
+        <img src="images/Referenzen/Garten-1-1.jpg" alt="Gartenpflege Nachher – Projekt 1" loading="lazy" />
+        <span class="ba-label">Nachher</span>
+      </div>
+    </div>
+
+    <!-- Projekt 2 (nur Vorher) -->
+    <div class="before-after-grid reveal" style="margin-bottom:16px;">
+      <div class="ba-item">
+        <img src="images/Referenzen/Garten-2.jpg" alt="Gartenpflege – Projekt 2" loading="lazy" />
+        <span class="ba-label vorher">Vorher</span>
+      </div>
+    </div>
+
+    <!-- Projekt 3 -->
+    <div class="before-after-grid reveal" style="margin-bottom:16px;">
+      <div class="ba-item">
+        <img src="images/Referenzen/Garten-3.jpg" alt="Gartenpflege Vorher – Projekt 3" loading="lazy" />
+        <span class="ba-label vorher">Vorher</span>
+      </div>
+      <div class="ba-item">
+        <img src="images/Referenzen/Garten-3-1.jpg" alt="Gartenpflege Nachher – Projekt 3" loading="lazy" />
+        <span class="ba-label">Nachher</span>
+      </div>
+    </div>
+
+    <!-- Projekt 4 -->
+    <div class="before-after-grid reveal">
+      <div class="ba-item">
+        <img src="images/Referenzen/Garten-4.jpg" alt="Gartenpflege Vorher – Projekt 4" loading="lazy" />
+        <span class="ba-label vorher">Vorher</span>
+      </div>
+      <div class="ba-item">
+        <img src="images/Referenzen/Garten-4-1.jpg" alt="Gartenpflege Nachher – Projekt 4" loading="lazy" />
+        <span class="ba-label">Nachher</span>
+      </div>
+    </div>
+
   </div>
 
   <!-- ═══ CTA BOTTOM ═══ -->
