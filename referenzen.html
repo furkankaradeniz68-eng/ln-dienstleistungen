@@ -273,63 +273,70 @@
       column-gap: 20px;
     }
 
-    /* Vorher/Nachher Badge */
-    .badge-vorher { background: rgba(200,50,50,0.85) !important; }
-    .badge-nachher { background: rgba(45,90,27,0.85) !important; }
-
-    /* Vorher-Nachher Paar Container */
-    .before-after-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 32px 64px;
-    }
-    .before-after-section h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin: 48px 0 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--green-light);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .before-after-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .ba-item {
+    /* ── Vorher/Nachher Slide innerhalb einer Card ── */
+    .card-slides {
       position: relative;
-      border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: var(--shadow);
     }
-    .ba-item img {
+    .card-slides .slide {
+      display: none;
+      position: relative;
+    }
+    .card-slides .slide.active { display: block; }
+    .card-slides .slide img {
       width: 100%;
-      height: 260px;
-      object-fit: cover;
+      height: auto;
       display: block;
-      transition: var(--transition);
     }
-    .ba-item:hover img { transform: scale(1.04); }
-    .ba-label {
+    .slide-badge {
       position: absolute;
       top: 12px; left: 12px;
-      background: rgba(45,90,27,0.85);
-      color: #fff;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
       padding: 4px 12px;
       border-radius: 50px;
+      color: #fff;
+      z-index: 2;
     }
-    .ba-label.vorher { background: rgba(180,40,40,0.85); }
-    @media (max-width: 600px) {
-      .before-after-grid { grid-template-columns: 1fr; }
-      .before-after-section { padding: 0 20px 48px; }
+    .slide-badge.vorher { background: rgba(180,40,40,0.88); }
+    .slide-badge.nachher { background: rgba(45,90,27,0.88); }
+
+    /* Pfeil-Buttons */
+    .slide-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.92);
+      border: none; border-radius: 50%;
+      width: 34px; height: 34px;
+      font-size: 1rem; font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+      z-index: 3;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      transition: background 0.2s;
+      line-height: 1;
     }
+    .slide-nav:hover { background: var(--green); color: #fff; }
+    .slide-nav.prev { left: 10px; }
+    .slide-nav.next { right: 10px; }
+
+    /* Dots */
+    .slide-dots {
+      position: absolute;
+      bottom: 10px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px; z-index: 3;
+    }
+    .slide-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .slide-dot.active { background: #fff; }
 
     .gallery-item {
       break-inside: avoid;
@@ -774,37 +781,45 @@
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">Alle</button>
     <button class="filter-btn" data-filter="garten">🌿 Gartenpflege</button>
+    <button class="filter-btn" data-filter="reinigung">🏢 Gebäudereinigung</button>
+    <button class="filter-btn" data-filter="fenster">🪟 Fensterreinigung</button>
+    <button class="filter-btn" data-filter="winterdienst">❄️ Winterdienst</button>
   </div>
 
   <!-- ═══ GALLERY ═══ -->
   <div class="gallery-section">
     <div class="gallery-grid" id="galleryGrid">
 
-      <!-- ─── Garten 1 Vorher ─── -->
+      <!-- ─── Garten Projekt 1 (Vorher/Nachher Slide) ─── -->
       <div class="gallery-item reveal" data-category="garten" data-index="0">
-        <img src="images/Referenzen/Garten-1.jpg" alt="Gartenpflege Neustadt an der Weinstraße – Vorher – L&N Dienstleistungen" loading="lazy" />
+        <div class="card-slides" data-current="0">
+          <div class="slide active">
+            <span class="slide-badge vorher">Vorher</span>
+            <img src="images/Referenzen/Garten-1.jpg" alt="Gartenpflege Projekt 1 – Vorher" loading="lazy" />
+          </div>
+          <div class="slide">
+            <span class="slide-badge nachher">Nachher</span>
+            <img src="images/Referenzen/Garten-1-1.jpg" alt="Gartenpflege Projekt 1 – Nachher" loading="lazy" />
+          </div>
+          <button class="slide-nav prev" onclick="slideCard(this,-1)">&#8249;</button>
+          <button class="slide-nav next" onclick="slideCard(this,1)">&#8250;</button>
+          <div class="slide-dots">
+            <span class="slide-dot active"></span>
+            <span class="slide-dot"></span>
+          </div>
+        </div>
         <div class="gallery-badge">Gartenpflege</div>
         <div class="gallery-overlay">
           <span class="overlay-category">🌿 Garten- &amp; Landschaftspflege</span>
-          <div class="overlay-title">Projekt 1 — Vorher</div>
-          <div class="overlay-desc">Garten vor der professionellen Pflege durch L&amp;N Dienstleistungen.</div>
+          <div class="overlay-title">Projekt 1 — Vorher &amp; Nachher</div>
+          <div class="overlay-desc">Pfeile nutzen um Vorher/Nachher zu vergleichen.</div>
         </div>
       </div>
 
-      <!-- ─── Garten 1 Nachher ─── -->
+      <!-- ─── Garten Projekt 2 (nur Vorher) ─── -->
       <div class="gallery-item reveal" data-category="garten" data-index="1">
-        <img src="images/Referenzen/Garten-1-1.jpg" alt="Gartenpflege Neustadt an der Weinstraße – Nachher – L&N Dienstleistungen" loading="lazy" />
-        <div class="gallery-badge" style="background:var(--green-dark);">Gartenpflege</div>
-        <div class="gallery-overlay">
-          <span class="overlay-category">🌿 Garten- &amp; Landschaftspflege</span>
-          <div class="overlay-title">Projekt 1 — Nachher</div>
-          <div class="overlay-desc">Gepflegtes Ergebnis — sauber, ordentlich und professionell umgesetzt.</div>
-        </div>
-      </div>
-
-      <!-- ─── Garten 2 ─── -->
-      <div class="gallery-item reveal" data-category="garten" data-index="2">
-        <img src="images/Referenzen/Garten-2.jpg" alt="Gartenpflege Neustadt an der Weinstraße – Projekt 2 – L&N Dienstleistungen" loading="lazy" />
+        <span class="slide-badge vorher" style="position:absolute;top:12px;left:12px;z-index:2;">Vorher</span>
+        <img src="images/Referenzen/Garten-2.jpg" alt="Gartenpflege Projekt 2 – Neustadt an der Weinstraße" loading="lazy" />
         <div class="gallery-badge">Gartenpflege</div>
         <div class="gallery-overlay">
           <span class="overlay-category">🌿 Garten- &amp; Landschaftspflege</span>
@@ -813,47 +828,88 @@
         </div>
       </div>
 
-      <!-- ─── Garten 3 Vorher ─── -->
+      <!-- ─── Garten Projekt 3 (Vorher/Nachher Slide) ─── -->
+      <div class="gallery-item reveal" data-category="garten" data-index="2">
+        <div class="card-slides" data-current="0">
+          <div class="slide active">
+            <span class="slide-badge vorher">Vorher</span>
+            <img src="images/Referenzen/Garten-3.jpg" alt="Gartenpflege Projekt 3 – Vorher" loading="lazy" />
+          </div>
+          <div class="slide">
+            <span class="slide-badge nachher">Nachher</span>
+            <img src="images/Referenzen/Garten-3-1.jpg" alt="Gartenpflege Projekt 3 – Nachher" loading="lazy" />
+          </div>
+          <button class="slide-nav prev" onclick="slideCard(this,-1)">&#8249;</button>
+          <button class="slide-nav next" onclick="slideCard(this,1)">&#8250;</button>
+          <div class="slide-dots">
+            <span class="slide-dot active"></span>
+            <span class="slide-dot"></span>
+          </div>
+        </div>
+        <div class="gallery-badge">Gartenpflege</div>
+        <div class="gallery-overlay">
+          <span class="overlay-category">🌿 Garten- &amp; Landschaftspflege</span>
+          <div class="overlay-title">Projekt 3 — Vorher &amp; Nachher</div>
+          <div class="overlay-desc">Pfeile nutzen um Vorher/Nachher zu vergleichen.</div>
+        </div>
+      </div>
+
+      <!-- ─── Garten Projekt 4 (Vorher/Nachher Slide) ─── -->
       <div class="gallery-item reveal" data-category="garten" data-index="3">
-        <img src="images/Referenzen/Garten-3.jpg" alt="Gartenpflege Neustadt an der Weinstraße – Vorher – Projekt 3" loading="lazy" />
+        <div class="card-slides" data-current="0">
+          <div class="slide active">
+            <span class="slide-badge vorher">Vorher</span>
+            <img src="images/Referenzen/Garten-4.jpg" alt="Gartenpflege Projekt 4 – Vorher" loading="lazy" />
+          </div>
+          <div class="slide">
+            <span class="slide-badge nachher">Nachher</span>
+            <img src="images/Referenzen/Garten-4-1.jpg" alt="Gartenpflege Projekt 4 – Nachher" loading="lazy" />
+          </div>
+          <button class="slide-nav prev" onclick="slideCard(this,-1)">&#8249;</button>
+          <button class="slide-nav next" onclick="slideCard(this,1)">&#8250;</button>
+          <div class="slide-dots">
+            <span class="slide-dot active"></span>
+            <span class="slide-dot"></span>
+          </div>
+        </div>
         <div class="gallery-badge">Gartenpflege</div>
         <div class="gallery-overlay">
           <span class="overlay-category">🌿 Garten- &amp; Landschaftspflege</span>
-          <div class="overlay-title">Projekt 3 — Vorher</div>
-          <div class="overlay-desc">Garten vor der Pflege — überwuchert und ungepflegt.</div>
+          <div class="overlay-title">Projekt 4 — Vorher &amp; Nachher</div>
+          <div class="overlay-desc">Pfeile nutzen um Vorher/Nachher zu vergleichen.</div>
         </div>
       </div>
 
-      <!-- ─── Garten 3 Nachher ─── -->
-      <div class="gallery-item reveal" data-category="garten" data-index="4">
-        <img src="images/Referenzen/Garten-3-1.jpg" alt="Gartenpflege Neustadt an der Weinstraße – Nachher – Projekt 3" loading="lazy" />
-        <div class="gallery-badge" style="background:var(--green-dark);">Gartenpflege</div>
+      <!-- ─── Gebäudereinigung ─── -->
+      <div class="gallery-item reveal" data-category="reinigung" data-index="4">
+        <img src="images/Bildergalerie/gebäudereinigung.jpg" alt="Gebäudereinigung Neustadt an der Weinstraße – L&N Dienstleistungen" loading="lazy" />
+        <div class="gallery-badge">Gebäudereinigung</div>
         <div class="gallery-overlay">
-          <span class="overlay-category">🌿 Garten- &amp; Landschaftspflege</span>
-          <div class="overlay-title">Projekt 3 — Nachher</div>
-          <div class="overlay-desc">Vollständig gepflegter und aufgeräumter Garten nach unserem Einsatz.</div>
+          <span class="overlay-category">🏢 Gebäudereinigung</span>
+          <div class="overlay-title">Professionelle Gebäudereinigung</div>
+          <div class="overlay-desc">Gründliche Unterhaltsreinigung für Wohn- und Gewerbeimmobilien — diskret und termingerecht.</div>
         </div>
       </div>
 
-      <!-- ─── Garten 4 Vorher ─── -->
-      <div class="gallery-item reveal" data-category="garten" data-index="5">
-        <img src="images/Referenzen/Garten-4.jpg" alt="Gartenpflege Neustadt an der Weinstraße – Vorher – Projekt 4" loading="lazy" />
-        <div class="gallery-badge">Gartenpflege</div>
+      <!-- ─── Fensterreinigung ─── -->
+      <div class="gallery-item reveal" data-category="fenster" data-index="5">
+        <img src="images/Dienstleistungen/fensterreinigung.jpg" alt="Fensterreinigung Neustadt an der Weinstraße – L&N Dienstleistungen" loading="lazy" />
+        <div class="gallery-badge">Fensterreinigung</div>
         <div class="gallery-overlay">
-          <span class="overlay-category">🌿 Garten- &amp; Landschaftspflege</span>
-          <div class="overlay-title">Projekt 4 — Vorher</div>
-          <div class="overlay-desc">Zustand vor der Gartenreinigung und -pflege durch L&amp;N.</div>
+          <span class="overlay-category">🪟 Fensterreinigung</span>
+          <div class="overlay-title">Streifenfreie Fensterreinigung</div>
+          <div class="overlay-desc">Professionelle Reinigung von Fenstern, Rahmen und Glasflächen für Privat und Gewerbe.</div>
         </div>
       </div>
 
-      <!-- ─── Garten 4 Nachher ─── -->
-      <div class="gallery-item reveal" data-category="garten" data-index="6">
-        <img src="images/Referenzen/Garten-4-1.jpg" alt="Gartenpflege Neustadt an der Weinstraße – Nachher – Projekt 4" loading="lazy" />
-        <div class="gallery-badge" style="background:var(--green-dark);">Gartenpflege</div>
+      <!-- ─── Winterdienst ─── -->
+      <div class="gallery-item reveal" data-category="winterdienst" data-index="6">
+        <img src="images/Bildergalerie/winterdienst.jpg" alt="Winterdienst Neustadt an der Weinstraße – L&N Dienstleistungen" loading="lazy" />
+        <div class="gallery-badge">Winterdienst</div>
         <div class="gallery-overlay">
-          <span class="overlay-category">🌿 Garten- &amp; Landschaftspflege</span>
-          <div class="overlay-title">Projekt 4 — Nachher</div>
-          <div class="overlay-desc">Sauberes, gepflegtes Ergebnis — der Unterschied spricht für sich.</div>
+          <span class="overlay-category">❄️ Winterdienst</span>
+          <div class="overlay-title">Schneeräumung &amp; Streudienst</div>
+          <div class="overlay-desc">Zuverlässige Räumung von Einfahrten, Gehwegen und Außenflächen — pünktlich und verlässlich.</div>
         </div>
       </div>
 
@@ -921,6 +977,37 @@
   </footer>
 
   <script>
+    // ── Vorher/Nachher Slide innerhalb einer Card ──
+    function slideCard(btn, dir) {
+      btn.stopPropagation ? btn.stopPropagation() : event.stopPropagation();
+      const container = btn.closest('.card-slides');
+      const slides = container.querySelectorAll('.slide');
+      const dots   = container.querySelectorAll('.slide-dot');
+      let current  = parseInt(container.dataset.current) || 0;
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (current + dir + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      container.dataset.current = current;
+    }
+
+    // Dots klickbar machen
+    document.querySelectorAll('.slide-dot').forEach((dot, i) => {
+      dot.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const container = dot.closest('.card-slides');
+        const slides = container.querySelectorAll('.slide');
+        const dots   = container.querySelectorAll('.slide-dot');
+        let current  = parseInt(container.dataset.current) || 0;
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        slides[i].classList.add('active');
+        dots[i].classList.add('active');
+        container.dataset.current = i;
+      });
+    });
+
     // ── Filter ──
     const filterBtns = document.querySelectorAll('.filter-btn');
     const items = document.querySelectorAll('.gallery-item');
