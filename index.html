@@ -534,6 +534,21 @@
       overflow: hidden;
     }
 
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+    }
+
     .service-card::before {
       content: '';
       position: absolute;
@@ -1081,12 +1096,14 @@
       <div class="services-grid">
 
         <div class="service-card reveal">
+          <div class="card-badge">★ Meist gefragt</div>
           <div class="service-icon">🌿</div>
           <h3>Garten- &amp; Landschaftspflege</h3>
           <p>Rasenmähen, Hecken schneiden, Bepflanzung, Laubentfernung und komplette Gartengestaltung für einen gepflegten Außenbereich.</p>
         </div>
 
         <div class="service-card reveal">
+          <div class="card-badge">★ Meist gefragt</div>
           <div class="service-icon">🏢</div>
           <h3>Gebäudereinigung</h3>
           <p>Professionelle Innen- und Außenreinigung für Wohn- und Gewerbeimmobilien — gründlich, diskret und termingerecht.</p>
@@ -1141,7 +1158,7 @@
         </div>
         <div class="slide-item">
           <img src="images/Dienstleistungen/haushaltsentrümpelung.jpg" alt="Haushaltsauflösung & Entrümpelung" loading="eager" />
-          <div class="slide-label">Entrümpelung</div>
+          <div class="slide-label">Haushaltsauflösung & Entrümpelung</div>
         </div>
         <div class="slide-item">
           <img src="images/Dienstleistungen/winterdienst.jpg" alt="Winterdienst" loading="eager" />
@@ -1166,7 +1183,7 @@
         </div>
         <div class="slide-item">
           <img src="images/Dienstleistungen/haushaltsentrümpelung.jpg" alt="Haushaltsauflösung & Entrümpelung" loading="eager" />
-          <div class="slide-label">Entrümpelung</div>
+          <div class="slide-label">Haushaltsauflösung & Entrümpelung</div>
         </div>
         <div class="slide-item">
           <img src="images/Dienstleistungen/winterdienst.jpg" alt="Winterdienst" loading="eager" />
@@ -1249,11 +1266,11 @@
         <div class="about-content reveal">
           <span class="section-tag">Wer wir sind</span>
           <h2 class="section-title">Ihr Partner vor<br /><span>Ort in Neustadt an der Weinstraße</span></h2>
-          <p>Wir sind L&amp;N Dienstleistungen — ein engagiertes Team aus Neustadt an der Weinstraße, das sich auf haushaltsnahe und gebäudebezogene Dienstleistungen spezialisiert hat.</p>
+          <p>Wir sind L&amp;N Dienstleistungen — ein engagiertes Team aus Neustadt an der Weinstraße, das sich auf <strong>Garten- &amp; Landschaftspflege</strong> und <strong>Gebäudereinigung</strong> spezialisiert hat — sowie weitere Leistungen rund ums Haus.</p>
           <p>Unser Anspruch: Jeder Auftrag wird so ausgeführt, als wäre es unser eigenes Zuhause. Vertrauen, Pünktlichkeit und Qualität sind keine Floskeln für uns — sie sind unser Versprechen.</p>
 
           <ul class="about-checks">
-            <li><span class="check-icon">✓</span> Lokal verwurzelt in Neustadt an der Weinstraße &amp; Umgebung</li>
+            <li><span class="check-icon">✓</span> Spezialist für Gartenpflege &amp; Gebäudereinigung in Neustadt an der Weinstraße</li>
             <li><span class="check-icon">✓</span> Zuverlässig, pünktlich und diskret</li>
             <li><span class="check-icon">✓</span> Faire und transparente Preise</li>
             <li><span class="check-icon">✓</span> Auf Wunsch regelmäßige Betreuung möglich</li>
