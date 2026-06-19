@@ -1022,15 +1022,15 @@
   <!-- ══════════════ NAVBAR ══════════════ -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="/" class="nav-logo">
         <!-- Inline SVG Logo (Haus + Blatt) -->
         <img src="images/logo.png" alt="L&N Dienstleistungen Logo" class="nav-logo-img" />
       </a>
       <ul class="nav-links">
-        <li><a href="#leistungen">Leistungen</a></li>
-        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="/leistungen">Leistungen</a></li>
+        <li><a href="/ueber-uns">Über uns</a></li>
         <li><a href="/referenzen">Referenzen</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
         <li><a href="tel:+491726432021" class="nav-cta">📞 Jetzt anrufen</a></li>
       </ul>
       <button class="burger" id="burger" aria-label="Menü öffnen">
@@ -1481,6 +1481,38 @@
     });
 
     // Form submit (placeholder — connect to backend/Formspree/Netlify)
+    // Saubere URLs ohne # im Browser
+    const cleanNavMap = {
+      '/leistungen': 'leistungen',
+      '/ueber-uns':  'ueber-uns',
+      '/kontakt':    'kontakt'
+    };
+
+    document.querySelectorAll('a[href^="/leistungen"], a[href^="/ueber-uns"], a[href^="/kontakt"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const path = this.getAttribute('href');
+        const sectionId = cleanNavMap[path];
+        if (sectionId) {
+          e.preventDefault();
+          history.pushState(null, '', path);
+          const target = document.getElementById(sectionId);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Beim Laden: falls URL wie /ueber-uns, zur Section scrollen
+    (function() {
+      const map = { '/leistungen': 'leistungen', '/ueber-uns': 'ueber-uns', '/kontakt': 'kontakt' };
+      const id = map[window.location.pathname];
+      if (id) {
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
+    })();
+
     async function handleSubmit(e) {
       e.preventDefault();
       const form = e.target;

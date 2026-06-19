@@ -1,4 +1,9 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/leistungen", "destination": "/index.html" },
+    { "source": "/ueber-uns",  "destination": "/index.html" },
+    { "source": "/kontakt",    "destination": "/index.html" }
+  ]
 }
