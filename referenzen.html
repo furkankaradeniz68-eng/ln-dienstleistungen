@@ -9,7 +9,7 @@
   <!-- SEO -->
   <title>Referenzen Gartenpflege &amp; Gebäudereinigung Neustadt an der Weinstraße | L&amp;N Dienstleistungen</title>
   <meta name="description" content="Bildergalerie abgeschlossener Projekte von L&amp;N Dienstleistungen: Gartenpflege &amp; Landschaftspflege, Gebäudereinigung, Fensterreinigung und Winterdienst in Neustadt an der Weinstraße — mit echten Vorher/Nachher-Fotos." />
-  <meta name="keywords" content="Gartenpflege Referenzen Neustadt an der Weinstraße, Gebäudereinigung Referenzen Neustadt, Vorher Nachher Gartenpflege, Fensterreinigung Neustadt an der Weinstraße, L&N Dienstleistungen Projekte, Winterdienst Referenzen" />
+  <meta name="keywords" content="Gartenpflege Referenzen Neustadt an der Weinstraße, Gebäudereinigung Referenzen Neustadt, Vorher Nachher Gartenpflege, Fensterreinigung Neustadt an der Weinstraße, L&N Dienstleistungen Projekte, Winterdienst Referenzen, Dienstleistungen Landau, Dienstleistungen Bad Dürkheim" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.ln-dienstleistungen.de/referenzen.html" />
   <meta property="og:type" content="website" />
@@ -1043,27 +1043,47 @@
     const lbImg    = document.getElementById('lbImg');
     const lbTitle  = document.getElementById('lbTitle');
     const lbDesc   = document.getElementById('lbDesc');
+
+    let cardImages   = [];  // Bilder des aktuell geöffneten Projekts
     let currentIndex = 0;
 
-    function getVisibleItems() {
-      return [...items].filter(i => !i.classList.contains('hidden'));
+    function showAt(index) {
+      const entry = cardImages[index];
+      if (!entry) return;
+      lbImg.src = entry.src;
+      lbTitle.textContent = entry.label ? `${entry.projectTitle} — ${entry.label}` : entry.projectTitle;
+      lbDesc.textContent  = entry.desc;
+
+      // Pfeile nur anzeigen wenn mehrere Bilder vorhanden
+      document.getElementById('lbPrev').style.display = cardImages.length > 1 ? '' : 'none';
+      document.getElementById('lbNext').style.display = cardImages.length > 1 ? '' : 'none';
     }
 
     function openLightbox(item) {
-      const img = item.querySelector('img');
-      const title = item.querySelector('.overlay-title')?.textContent || '';
-      const desc  = item.querySelector('.overlay-desc')?.textContent  || '';
-      currentIndex = getVisibleItems().indexOf(item);
+      const projectTitle = item.querySelector('.overlay-title')?.textContent || '';
+      const desc         = item.querySelector('.overlay-desc')?.textContent  || '';
+      const slides       = item.querySelectorAll('.card-slides .slide');
 
-      if (img && img.src && !img.style.display.includes('none')) {
-        lbImg.src = img.src;
-        lbImg.style.display = 'block';
+      cardImages = [];
+
+      if (slides.length > 0) {
+        // Vorher/Nachher Projekt — alle Slides sammeln
+        slides.forEach(slide => {
+          const img   = slide.querySelector('img');
+          const label = slide.querySelector('.slide-badge')?.textContent || '';
+          if (img) cardImages.push({ src: img.src, projectTitle, desc, label });
+        });
+        // Mit dem aktiven Slide starten
+        currentIndex = 0;
+        slides.forEach((s, i) => { if (s.classList.contains('active')) currentIndex = i; });
       } else {
-        lbImg.src = '';
-        lbImg.style.display = 'none';
+        // Einzelbild-Card
+        const img = item.querySelector('img');
+        if (img) cardImages.push({ src: img.src, projectTitle, desc, label: '' });
+        currentIndex = 0;
       }
-      lbTitle.textContent = title;
-      lbDesc.textContent  = desc;
+
+      showAt(currentIndex);
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -1073,22 +1093,27 @@
       document.body.style.overflow = '';
     }
 
-    function navigateLightbox(dir) {
-      const visible = getVisibleItems();
-      currentIndex = (currentIndex + dir + visible.length) % visible.length;
-      openLightbox(visible[currentIndex]);
+    function navigate(dir) {
+      currentIndex = (currentIndex + dir + cardImages.length) % cardImages.length;
+      showAt(currentIndex);
     }
 
-    items.forEach(item => item.addEventListener('click', () => openLightbox(item)));
+    items.forEach(item => {
+      item.addEventListener('click', e => {
+        if (e.target.classList.contains('slide-nav') || e.target.classList.contains('slide-dot')) return;
+        openLightbox(item);
+      });
+    });
+
     document.getElementById('lbClose').addEventListener('click', closeLightbox);
-    document.getElementById('lbPrev').addEventListener('click', () => navigateLightbox(-1));
-    document.getElementById('lbNext').addEventListener('click', () => navigateLightbox(1));
+    document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); navigate(-1); });
+    document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); navigate(1); });
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', e => {
       if (!lightbox.classList.contains('open')) return;
-      if (e.key === 'Escape')      closeLightbox();
-      if (e.key === 'ArrowLeft')  navigateLightbox(-1);
-      if (e.key === 'ArrowRight') navigateLightbox(1);
+      if (e.key === 'Escape')     closeLightbox();
+      if (e.key === 'ArrowLeft')  navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
     });
 
     // ── Scroll reveal ──
