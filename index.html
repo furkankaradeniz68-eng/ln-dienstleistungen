@@ -268,20 +268,21 @@
     }
 
     .hero-watermark {
-      right: -40px;
-      bottom: 40px;
-      width: 420px;
-      opacity: 0.055;
-      transform: rotate(-10deg);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-8deg);
+      width: 600px;
+      opacity: 0.07;
       z-index: 0;
     }
 
-    .contact-watermark {
-      left: -60px;
+    .bonus-watermark {
+      right: -20px;
       top: 50%;
-      transform: translateY(-50%) rotate(10deg);
-      width: 380px;
-      opacity: 0.05;
+      transform: translateY(-50%);
+      width: 400px;
+      opacity: 0.13;
+      color: white;
       z-index: 0;
     }
 
@@ -1474,28 +1475,25 @@
   <!-- ══════════════ BONUS BANNER ══════════════ -->
   <section style="padding: 0 32px; margin-bottom: 0;">
     <div class="section-inner">
-      <div class="bonus-banner reveal">
-        <div class="bonus-banner-text">
+      <div class="bonus-banner reveal" style="position:relative; overflow:hidden;">
+        <!-- House watermark on dark background -->
+        <svg class="watermark bonus-watermark" viewBox="0 0 320 280" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M160 10 L310 110 L260 110 L260 270 L60 270 L60 110 L10 110 Z"/>
+          <rect x="125" y="130" width="70" height="70" rx="4" fill="rgba(45,90,27,0.6)"/>
+          <rect x="155" y="130" width="4" height="70" fill="rgba(45,90,27,0.6)"/>
+          <rect x="125" y="163" width="70" height="4" fill="rgba(45,90,27,0.6)"/>
+        </svg>
+        <div class="bonus-banner-text" style="position:relative; z-index:1;">
           <h2>Jetzt <span>20 % Neukunden-</span>Bonus sichern!</h2>
           <p>Sie buchen zum ersten Mal bei uns? Dann erhalten Sie auf Ihren ersten Auftrag sagenhafte 20 % Rabatt — einfach bei der Anfrage erwähnen.</p>
         </div>
-        <a href="#kontakt" class="btn-primary" style="font-size:1rem; padding: 16px 36px;">Angebot anfordern →</a>
+        <a href="#kontakt" class="btn-primary" style="font-size:1rem; padding: 16px 36px; position:relative; z-index:1;">Angebot anfordern →</a>
       </div>
     </div>
   </section>
 
   <!-- ══════════════ KONTAKT ══════════════ -->
-  <section id="kontakt" style="position:relative; overflow:hidden;">
-    <!-- House watermark -->
-    <svg class="watermark contact-watermark" viewBox="0 0 320 280" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <!-- Roof -->
-      <path d="M160 10 L310 110 L260 110 L260 270 L60 270 L60 110 L10 110 Z"/>
-      <!-- Window (cut out effect via different opacity layer) -->
-      <rect x="125" y="130" width="70" height="70" rx="4" fill="var(--gray-50)"/>
-      <rect x="155" y="130" width="4" height="70"/>
-      <rect x="125" y="163" width="70" height="4"/>
-    </svg>
-
+  <section id="kontakt">
     <div class="section-inner">
       <div class="contact-inner">
         <div class="contact-info reveal">
