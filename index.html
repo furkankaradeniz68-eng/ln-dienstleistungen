@@ -955,6 +955,136 @@
     }
 
     /* ════════════════════════════
+       ICON COLORS
+    ════════════════════════════ */
+    .service-icon { color: var(--green-dark); }
+    .service-card:hover .service-icon { color: white; }
+    .contact-item-icon { color: var(--green); }
+    .about-img-deco { color: white; }
+    .bonus-icon { color: white; }
+
+    /* ════════════════════════════
+       BENEFITS STRIP
+    ════════════════════════════ */
+    .benefits-strip {
+      padding: 0 32px;
+      margin-top: -44px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .benefits-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+      border: 1px solid rgba(141,198,63,0.12);
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 24px 24px;
+      border-right: 1px solid rgba(141,198,63,0.1);
+      transition: var(--transition);
+    }
+
+    .benefit-item:last-child { border-right: none; }
+    .benefit-item:hover { background: var(--green-light); }
+
+    .benefit-icon {
+      width: 46px; height: 46px;
+      background: var(--green-light);
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green-dark);
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .benefit-item:hover .benefit-icon { background: var(--green); color: white; }
+
+    .benefit-text strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .benefit-text span {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+    }
+
+    /* Stagger delays for service cards */
+    .services-grid .service-card:nth-child(1) { transition-delay: 0ms; }
+    .services-grid .service-card:nth-child(2) { transition-delay: 90ms; }
+    .services-grid .service-card:nth-child(3) { transition-delay: 180ms; }
+    .services-grid .service-card:nth-child(4) { transition-delay: 270ms; }
+    .services-grid .service-card:nth-child(5) { transition-delay: 360ms; }
+    .services-grid .service-card:nth-child(6) { transition-delay: 450ms; }
+
+    /* About-checks as mini cards */
+    .about-checks li {
+      background: var(--green-light);
+      border-radius: 10px;
+      padding: 10px 16px;
+      border: 1px solid rgba(141,198,63,0.15);
+      transition: var(--transition);
+    }
+
+    .about-checks li:hover {
+      background: white;
+      box-shadow: var(--shadow);
+      transform: translateX(5px);
+    }
+
+    /* WhatsApp FAB */
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .whatsapp-fab:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.55);
+    }
+
+    @media (max-width: 960px) {
+      .benefits-inner { grid-template-columns: repeat(2, 1fr); }
+      .benefit-item:nth-child(2) { border-right: none; }
+      .benefit-item:nth-child(3) { border-top: 1px solid rgba(141,198,63,0.1); }
+      .benefit-item:nth-child(4) { border-top: 1px solid rgba(141,198,63,0.1); }
+    }
+
+    @media (max-width: 640px) {
+      .benefits-strip { margin-top: 0; padding: 24px 20px 0; }
+      .benefits-inner { grid-template-columns: 1fr 1fr; border-radius: 16px; }
+      .benefit-item { padding: 16px 14px; gap: 10px; }
+      .whatsapp-fab { bottom: 20px; right: 20px; }
+    }
+
+    /* ════════════════════════════
        ANIMATIONS
     ════════════════════════════ */
     @keyframes fadeInUp {
@@ -1031,7 +1161,7 @@
         <li><a href="/ueber-uns">Über uns</a></li>
         <li><a href="/referenzen">Referenzen</a></li>
         <li><a href="/kontakt">Kontakt</a></li>
-        <li><a href="tel:+491726432021" class="nav-cta">📞 Jetzt anrufen</a></li>
+        <li><a href="tel:+491726432021" class="nav-cta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.07 9.8a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 2 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L6.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Jetzt anrufen</a></li>
       </ul>
       <button class="burger" id="burger" aria-label="Menü öffnen">
         <span></span><span></span><span></span>
@@ -1072,7 +1202,7 @@
           <img src="images/hero.jpg" alt="L&N Dienstleistungen – Garten und Haus" onerror="this.style.display='none'" />
         </div>
         <div class="bonus-card">
-          <div class="bonus-icon">🎁</div>
+          <div class="bonus-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
           <div class="bonus-text">
             <strong>20 % Neukunden-Bonus</strong>
             <span>Für alle Erstaufträge</span>
@@ -1081,6 +1211,28 @@
       </div>
     </div>
   </section>
+
+  <!-- ══════════════ BENEFITS STRIP ══════════════ -->
+  <div class="benefits-strip">
+    <div class="benefits-inner">
+      <div class="benefit-item">
+        <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <div class="benefit-text"><strong>Zufriedenheitsgarantie</strong><span>100 % oder Nachbesserung</span></div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="benefit-text"><strong>Pünktlichkeit</strong><span>Reaktion in 24 Stunden</span></div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="benefit-text"><strong>Lokal &amp; persönlich</strong><span>Neustadt a.d. Weinstraße</span></div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+        <div class="benefit-text"><strong>Faire Preise</strong><span>Transparent &amp; unverbindlich</span></div>
+      </div>
+    </div>
+  </div>
 
   <!-- ══════════════ LEISTUNGEN ══════════════ -->
   <section id="leistungen">
@@ -1098,38 +1250,38 @@
 
         <div class="service-card reveal">
           <div class="card-badge">★ Meist gefragt</div>
-          <div class="service-icon">🌿</div>
+          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
           <h3>Garten- &amp; Landschaftspflege</h3>
           <p>Rasenmähen, Hecken schneiden, Bepflanzung, Laubentfernung und komplette Gartengestaltung für einen gepflegten Außenbereich.</p>
         </div>
 
         <div class="service-card reveal">
           <div class="card-badge">★ Meist gefragt</div>
-          <div class="service-icon">🏢</div>
+          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M8 10h.01M16 10h.01M12 14h.01M8 14h.01M16 14h.01"/></svg></div>
           <h3>Gebäudereinigung</h3>
           <p>Professionelle Innen- und Außenreinigung für Wohn- und Gewerbeimmobilien — gründlich, diskret und termingerecht.</p>
         </div>
 
         <div class="service-card reveal">
-          <div class="service-icon">🔧</div>
+          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
           <h3>Hausmeisterservice</h3>
           <p>Ihr zuverlässiger Ansprechpartner für alle anfallenden Arbeiten rund ums Gebäude — von kleinen Reparaturen bis zur laufenden Betreuung.</p>
         </div>
 
         <div class="service-card reveal">
-          <div class="service-icon">🪟</div>
+          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
           <h3>Fensterreinigung</h3>
           <p>Streifenfreie Reinigung von Fenstern, Rahmen und Glasflächen — für Privathaushalte und Gewerbeimmobilien.</p>
         </div>
 
         <div class="service-card reveal">
-          <div class="service-icon">📦</div>
+          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/><circle cx="12" cy="21" r="1"/><circle cx="20" cy="21" r="1"/></svg></div>
           <h3>Haushaltsauflösung &amp; Entrümpelung</h3>
           <p>Vollständige Wohnungsauflösungen sowie Keller, Dachboden und Garagen — respektvoll, schnell und mit fachgerechter Entsorgung.</p>
         </div>
 
         <div class="service-card reveal">
-          <div class="service-icon">❄️</div>
+          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 7l-5 5-5-5"/><path d="M17 17l-5-5-5 5"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M7 7l5 5 5-5"/><path d="M7 17l5-5 5 5"/></svg></div>
           <h3>Winterdienst</h3>
           <p>Räum- und Streupflicht zuverlässig übernommen — Schneeräumung und Streudienst für Einfahrten, Gehwege und Außenflächen.</p>
         </div>
@@ -1261,7 +1413,7 @@
         <div class="about-img-wrap reveal">
           <!-- Platzhalter — ersetze src mit deinem Bild -->
           <img src="images/about.jpg" alt="Das Team von L&N Dienstleistungen" onerror="this.style.display='none'" />
-          <div class="about-img-deco">🌱</div>
+          <div class="about-img-deco"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.1 2 3.4-.6 1-1.7 2.1-3.5 2.1S6.1 14 5.5 13c.8-1.3 2.3-3.5 4-3.6z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.4-.4 2.7-1.5 3-2.9-.5-.7-1.2-1.1-1.9-1.1z"/></svg></div>
         </div>
 
         <div class="about-content reveal">
@@ -1307,21 +1459,21 @@
 
           <div class="contact-items">
             <div class="contact-item">
-              <div class="contact-item-icon">📞</div>
+              <div class="contact-item-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.07 9.8a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 2 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L6.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
               <div class="contact-item-text">
                 <strong>Telefon</strong>
                 <a href="tel:+491726432021">0172 6432021</a>
               </div>
             </div>
             <div class="contact-item">
-              <div class="contact-item-icon">✉️</div>
+              <div class="contact-item-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
               <div class="contact-item-text">
                 <strong>E-Mail</strong>
                 <a href="mailto:info@ln-dienstleistungen.de">info@ln-dienstleistungen.de</a>
               </div>
             </div>
             <div class="contact-item">
-              <div class="contact-item-icon">📍</div>
+              <div class="contact-item-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
               <div class="contact-item-text">
                 <strong>Adresse</strong>
                 <span>Sauterstraße 200, 67433 Neustadt an der Weinstraße</span>
@@ -1369,6 +1521,11 @@
       </div>
     </div>
   </section>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/491726432021" class="whatsapp-fab" aria-label="WhatsApp" target="_blank" rel="noopener">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
 
   <!-- ══════════════ FOOTER ══════════════ -->
   <footer>
