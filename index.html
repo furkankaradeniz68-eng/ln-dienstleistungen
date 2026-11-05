@@ -97,6 +97,25 @@
   }
   </script>
 
+  <!-- ═══════════════════════════════════════════
+       GOOGLE TAG MANAGER — lädt nur nach Zustimmung
+       Zustimmung wird im Cookie-Banner unten gesteuert
+  ═══════════════════════════════════════════ -->
+  <script>
+    // GTM wird erst nach expliziter Cookie-Zustimmung geladen
+    function loadGTM() {
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-TF8LV6KB');
+    }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    // Consent-Status beim Seitenaufruf prüfen
+    if (localStorage.getItem('ln_cookie_consent') === 'accepted') { loadGTM(); }
+  </script>
+
   <!-- Slider-Bilder vorab laden (verhindert Ruckeln) -->
   <link rel="preload" as="image" href="images/Dienstleistungen/garten-landschaftspflege.jpg" />
   <link rel="preload" as="image" href="images/Dienstleistungen/gebäudereinigung.jpg" />
@@ -1198,10 +1217,79 @@
       }
       .benefit-item:first-child { border-top: none; }
     }
+    /* ════════════════════════════
+       COOKIE BANNER
+    ════════════════════════════ */
+    #cookie-banner {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 760px;
+      background: var(--white);
+      border: 1px solid rgba(141,198,63,0.25);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 48px rgba(45,90,27,0.18);
+      z-index: 9999;
+      padding: 20px 24px;
+      animation: slideUpBanner 0.4s cubic-bezier(0.4,0,0.2,1) both;
+    }
+    @keyframes slideUpBanner {
+      from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    .cookie-inner {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .cookie-text { flex: 1; min-width: 200px; }
+    .cookie-text strong { font-size: 0.95rem; color: var(--text); }
+    .cookie-text p { font-size: 0.82rem; color: var(--text-light); margin-top: 4px; line-height: 1.5; }
+    .cookie-text a { color: var(--green); text-decoration: underline; }
+    .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+    .cookie-btn-decline {
+      padding: 10px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; border: 1.5px solid var(--green); background: transparent;
+      color: var(--green); transition: var(--transition); font-family: inherit;
+    }
+    .cookie-btn-decline:hover { background: var(--green-light); }
+    .cookie-btn-accept {
+      padding: 10px 22px; border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; border: none; background: var(--green); color: var(--white);
+      transition: var(--transition); font-family: inherit;
+    }
+    .cookie-btn-accept:hover { background: var(--green-dark); }
+    @media (max-width: 540px) {
+      .cookie-inner { flex-direction: column; }
+      .cookie-actions { width: 100%; }
+      .cookie-btn-decline, .cookie-btn-accept { flex: 1; text-align: center; }
+    }
+
   </style>
 </head>
 
 <body>
+
+  <!-- GTM noscript (Fallback für Browser ohne JS) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TF8LV6KB"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- ══════════════ COOKIE-BANNER ══════════════ -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen" style="display:none;">
+    <div class="cookie-inner">
+      <div class="cookie-text">
+        <strong>Wir verwenden Cookies</strong>
+        <p>Wir nutzen Google Tag Manager / Analytics, um zu verstehen, wie Besucher unsere Website nutzen. Ihre Daten werden nur mit Ihrer Zustimmung erhoben. Mehr dazu in unserer <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>
+      </div>
+      <div class="cookie-actions">
+        <button id="cookie-decline" class="cookie-btn-decline">Ablehnen</button>
+        <button id="cookie-accept" class="cookie-btn-accept">Alles akzeptieren</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ══════════════ NAVBAR ══════════════ -->
   <nav id="navbar">
@@ -1784,6 +1872,27 @@
         }, 4000);
       }
     }
+
+    // ── Cookie-Banner ──────────────────────────────────────────
+    (function() {
+      const banner  = document.getElementById('cookie-banner');
+      const consent = localStorage.getItem('ln_cookie_consent');
+
+      if (!consent) {
+        banner.style.display = 'block';
+      }
+
+      document.getElementById('cookie-accept').addEventListener('click', function() {
+        localStorage.setItem('ln_cookie_consent', 'accepted');
+        banner.style.display = 'none';
+        loadGTM();
+      });
+
+      document.getElementById('cookie-decline').addEventListener('click', function() {
+        localStorage.setItem('ln_cookie_consent', 'declined');
+        banner.style.display = 'none';
+      });
+    })();
   </script>
 
 </body>
