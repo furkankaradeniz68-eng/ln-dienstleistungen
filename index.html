@@ -259,6 +259,32 @@
       background: linear-gradient(135deg, #ffffff 0%, #f4fae8 50%, #e8f5d0 100%);
     }
 
+    /* Watermarks */
+    .watermark {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      color: var(--green);
+    }
+
+    .hero-watermark {
+      right: -40px;
+      bottom: 40px;
+      width: 420px;
+      opacity: 0.055;
+      transform: rotate(-10deg);
+      z-index: 0;
+    }
+
+    .contact-watermark {
+      left: -60px;
+      top: 50%;
+      transform: translateY(-50%) rotate(10deg);
+      width: 380px;
+      opacity: 0.05;
+      z-index: 0;
+    }
+
     /* Decorative blobs */
     .hero::before {
       content: '';
@@ -1171,6 +1197,16 @@
 
   <!-- ══════════════ HERO ══════════════ -->
   <section class="hero" id="home">
+    <!-- Leaves watermark -->
+    <svg class="watermark hero-watermark" viewBox="0 0 300 380" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Left leaf -->
+      <path d="M140 360 C138 300 125 220 90 150 C65 100 30 70 10 60 C30 55 80 65 115 100 C145 130 158 200 160 280 L140 360Z"/>
+      <!-- Right leaf -->
+      <path d="M160 360 C162 300 175 220 210 150 C235 100 270 70 290 60 C270 55 220 65 185 100 C155 130 142 200 140 280 L160 360Z"/>
+      <!-- Stem -->
+      <rect x="147" y="300" width="6" height="80" rx="3"/>
+    </svg>
+
     <div class="hero-inner">
       <div class="hero-content">
         <div class="hero-badge">✦ Ihr lokaler Partner in Neustadt an der Weinstraße &amp; Umgebung</div>
@@ -1449,7 +1485,17 @@
   </section>
 
   <!-- ══════════════ KONTAKT ══════════════ -->
-  <section id="kontakt">
+  <section id="kontakt" style="position:relative; overflow:hidden;">
+    <!-- House watermark -->
+    <svg class="watermark contact-watermark" viewBox="0 0 320 280" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Roof -->
+      <path d="M160 10 L310 110 L260 110 L260 270 L60 270 L60 110 L10 110 Z"/>
+      <!-- Window (cut out effect via different opacity layer) -->
+      <rect x="125" y="130" width="70" height="70" rx="4" fill="var(--gray-50)"/>
+      <rect x="155" y="130" width="4" height="70"/>
+      <rect x="125" y="163" width="70" height="4"/>
+    </svg>
+
     <div class="section-inner">
       <div class="contact-inner">
         <div class="contact-info reveal">
