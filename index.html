@@ -1100,8 +1100,10 @@
     @media (max-width: 960px) {
       .benefits-inner { grid-template-columns: repeat(2, 1fr); }
       .benefit-item:nth-child(2) { border-right: none; }
-      .benefit-item:nth-child(3) { border-top: 1px solid rgba(141,198,63,0.1); }
+      .benefit-item:nth-child(3),
       .benefit-item:nth-child(4) { border-top: 1px solid rgba(141,198,63,0.1); }
+      .benefit-text strong { font-size: 0.82rem; }
+      .benefit-text span { font-size: 0.72rem; }
     }
 
     @media (max-width: 640px) {
@@ -1166,10 +1168,31 @@
       .burger { display: flex; }
       .services-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
-      .bonus-banner { padding: 40px 28px; }
+      .bonus-banner { padding: 40px 24px; }
       .contact-form { padding: 28px 20px; }
       .footer-top { grid-template-columns: 1fr; }
-      .hero-trust { gap: 20px; }
+
+      /* Trust bar: wrap statt abschneiden */
+      .hero-trust {
+        gap: 12px 20px;
+        flex-wrap: wrap;
+      }
+      .trust-item { min-width: 90px; }
+      .trust-number { font-size: 1.3rem; }
+      .trust-label { font-size: 0.72rem; }
+
+      /* Benefits: 1 Spalte auf kleinen Screens */
+      .benefits-strip { margin-top: 0; padding: 24px 16px 0; }
+      .benefits-inner {
+        grid-template-columns: 1fr !important;
+        border-radius: 16px;
+      }
+      .benefit-item {
+        padding: 14px 18px;
+        border-right: none !important;
+        border-top: 1px solid rgba(141,198,63,0.1);
+      }
+      .benefit-item:first-child { border-top: none; }
     }
   </style>
 </head>
